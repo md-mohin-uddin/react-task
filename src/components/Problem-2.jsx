@@ -45,7 +45,7 @@ const Problem2 = () => {
   };
 
   const filteredContacts = showOnlyEven
-    ? contacts.filter((contact, index) => index % 2 === 1)
+    ? contacts.filter((_, index) => index % 2 === 0)
     : contacts;
 
   return (
@@ -71,52 +71,12 @@ const Problem2 = () => {
           {filteredContacts.map((contact) => (
             <div key={contact.id}>{contact.name}</div>
           ))}
-          <button
-            className="btn btn-primary"
-            onClick={() => setModalCOpen(true)}
-          >
-            Modal Button A
-          </button>
-          <button
-            className="btn btn-warning"
-            onClick={() => setModalBOpen(true)}
-          >
-            Modal Button B
-          </button>
-          <button
-            className="btn btn-danger"
-            onClick={() => setModalAOpen(false)}
-          >
-            Modal Button C
-          </button>
         </Modal>
         <Modal isOpen={modalBOpen} closeModal={() => setModalBOpen(false)}>
           <h2>US Contacts</h2>
           {usContacts.map((contact) => (
             <div key={contact.id}>{contact.name}</div>
           ))}
-          <button
-            className="btn btn-primary"
-            onClick={() => setModalAOpen(true)}
-          >
-            Modal Button A
-          </button>
-          <button
-            className="btn btn-warning"
-            onClick={() => setModalBOpen(true)}
-          >
-            Modal Button B
-          </button>
-          <button
-            className="btn btn-danger"
-            onClick={() => setModalBOpen(false)}
-          >
-            Modal Button C
-          </button>
-        </Modal>
-        <Modal isOpen={modalCOpen} closeModal={() => setModalCOpen(false)}>
-          <h2>Contact Details</h2>
-          {/* Display contact details here */}
         </Modal>
       </div>
       <div className="row justify-content-start mt-3">
